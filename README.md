@@ -146,6 +146,33 @@ You can implement more sophisticated evaluation methods such as nDCG, Precision@
 
 This example demonstrates how to turn the MovieLens 25M dataset into a sequential recommendation problem using an LSTM model. The steps include loading and preparing the data, building and training a model, and finally evaluating the model's predictions. This approach allows for the modeling of user behavior over time, making it suitable for applications where the sequence of interactions is important.
 
+## Loss function
+For the sequential recommendation model described above, the loss function used is **Cross-Entropy Loss** (often referred to as `nn.CrossEntropyLoss` in PyTorch). This loss function is appropriate for classification problems where the goal is to predict the next item in a sequence from a set of possible items.
+
+### Why Cross-Entropy Loss?
+
+- **Classification Task**: In this sequential recommendation problem, the task is to predict the next movie that a user is likely to interact with. The model outputs a probability distribution over all possible movies, and the correct movie (the one the user actually interacted with next) is the target label. This makes it a multi-class classification problem, where Cross-Entropy Loss is typically used.
+  <img width="558" alt="Screenshot 2024-08-13 at 9 55 56 AM" src="https://github.com/user-attachments/assets/717eef6b-bc91-4caf-9d83-98deeb0e324f">
+
+
+
+### Implementation in the Code
+
+In the code provided, the loss function is defined using:
+
+```python
+criterion = nn.CrossEntropyLoss()
+```
+
+This function compares the predicted probabilities (output of the model) against the true labels (the actual next movie in the sequence) and calculates the loss based on how far the predicted distribution is from the actual distribution.
+
+### Training Process
+
+During training, the model adjusts its parameters to minimize this loss, which encourages the model to assign higher probabilities to the correct next movie in the sequence for each user. Over time, this helps the model learn to accurately predict the sequence of movies a user might engage with based on their history.
+
+### Summary
+
+In the context of sequential recommendation using DLRM and multimodal features, Cross-Entropy Loss is used because the problem is treated as a classification task where the model needs to predict the next item (movie) from a set of possible items.
 ## Classification problem
 The problem described using the MovieLens 25M dataset for sequential recommendation is a **classification problem**, not a regression problem.
 
