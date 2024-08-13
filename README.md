@@ -1,7 +1,7 @@
 # Multimodal_DLRM_Sequential
 
 ## Baselines of MovieLens 25M as sequential prediction
-Yes, the MovieLens 25M dataset can be used in sequential recommendation problems. Sequential recommendation focuses on predicting the next item (e.g., movie) a user is likely to interact with, based on their previous interactions. This is particularly relevant for tasks like session-based recommendations or modeling user behavior over time.
+the MovieLens 25M dataset can be used in sequential recommendation problems. Sequential recommendation focuses on predicting the next item (e.g., movie) a user is likely to interact with, based on their previous interactions. This is particularly relevant for tasks like session-based recommendations or modeling user behavior over time.
 
 ### How MovieLens 25M Can Be Used in Sequential Recommendation
 
