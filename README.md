@@ -1,5 +1,23 @@
 # Multimodal_DLRM_Sequential
 
+## MovieLens 25M Sequential recommendation, what's to predict?
+In the context of the MovieLens sequential prediction problem, what you're predicting could be framed in one of two ways:
+
+1. **Next Movie to Watch**: This scenario is often used when the goal is to predict the next movie that a user will interact with based on their past watching behavior. The model tries to understand the user's viewing patterns and suggests the next movie they are likely to watch.
+
+2. **Next Movie to Rate**: This scenario is more aligned with the actual dataset structure of MovieLens, where users explicitly rate movies. Here, the goal is to predict which movie a user will rate next based on their previous ratings. This could involve predicting the next interaction where a user leaves a rating, which implicitly assumes the user has watched the movie.
+
+### Which is More Applicable?
+
+- **For MovieLens**: Typically, the data represents users rating movies, so the prediction is often framed as "which movie will the user rate next?" This is because the dataset records explicit feedback (ratings), not just views. However, rating a movie usually implies that the user has watched it, so predicting the next movie to rate can indirectly be seen as predicting the next movie to watch.
+
+### Summary
+
+- **Prediction Focus**: For the MovieLens dataset, the typical prediction task is about the next movie to **rate**, as the dataset primarily consists of user ratings. However, this is often interpreted as predicting the next movie the user will **watch**, since users usually rate movies after watching them.
+- **Modeling**: The task remains a sequence prediction problem where the model is trained to predict the next movie ID based on the sequence of previously rated movies. The actual "target" is the movie ID that corresponds to the user's next rating.
+
+This prediction can then be used in recommendation systems to suggest movies that the user might enjoy next based on their historical interactions.
+
 ## Baselines of MovieLens 25M as sequential prediction
 the MovieLens 25M dataset can be used in sequential recommendation problems. Sequential recommendation focuses on predicting the next item (e.g., movie) a user is likely to interact with, based on their previous interactions. This is particularly relevant for tasks like session-based recommendations or modeling user behavior over time.
 
